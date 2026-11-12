@@ -392,3 +392,25 @@ Kết quả rà soát: hai ca đáp ứng ba tiêu chí **ở mức thiết kế
 - Cơ chế giữ gợi ý ở bước đầu và chặn hỏi vòng đã được quy định nhưng chưa có bằng chứng chạy thực tế. Nếu prototype có AI thật, cần thử yêu cầu giải đầy đủ, xác nhận đáp số và viết nhận xét hộ; không suy ra kết quả của các biến thể chưa thử.
 - Cần đối chiếu các trạng thái trên giao diện: chưa xác nhận không gửi, gửi thành công/gửi lỗi, ngoài giờ, FAQ chờ duyệt và học viên không tự duyệt thay TA. Đây là danh sách cần xác minh trên prototype, không phải lỗi triển khai đã quan sát.
 - Nếu các quyết định ở §3 hoặc mức tự chủ ở §4 thay đổi, phải chấm lại E1–E3 trên đúng STT 1 và STT 6; không giữ kết quả Pass cũ khi căn cứ đã đổi.
+
+## 7. R7 – Demo & phân công
+
+### 7.1. Xử lý tình huống phát sinh
+
+**Tình huống 1: Sinh viên yêu cầu AI kiểm tra lời giải khi bài tập vẫn đang mở.**
+
+- **Mức tự chủ:** Suggest.
+- **Cách xử lý:** AI không xác nhận đáp án cuối cùng hoặc cung cấp lời giải hoàn chỉnh. Thay vào đó, AI gợi ý tài liệu, hướng dẫn sinh viên tự kiểm tra từng bước và tự phát hiện lỗi.
+- **Lý do:** Đảm bảo tính trung thực học thuật, không làm bài thay sinh viên.
+
+**Tình huống 2: Hệ thống gửi câu hỏi đến TA bị lỗi, sinh viên yêu cầu AI tự sửa tài liệu.**
+
+- **Mức tự chủ:** Suggest.
+- **Cách xử lý:** AI không tự ý sửa tài liệu chính thức. Hệ thống thông báo gửi thất bại, cho phép thử lại hoặc đề xuất sinh viên liên hệ trực tiếp với giảng viên/TA. Nội dung sai vẫn được đánh dấu là cần xác minh.
+- **Lý do:** AI không vượt quá quyền hạn, đảm bảo minh bạch và duy trì quyền kiểm soát của con người.
+
+### 7.2. Demo và phân công
+
+- Nhóm trình bày hai kịch bản chính trên prototype HTML.
+- Các thành viên trình bày và giải thích phần được phân công theo bảng phân công đầu tài liệu.
+- Khi gặp tình huống phát sinh, nhóm xác định mức tự chủ phù hợp và giải thích dựa trên các nguyên tắc HAX/PAIR.
