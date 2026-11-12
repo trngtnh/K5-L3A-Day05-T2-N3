@@ -395,22 +395,23 @@ Kết quả rà soát: hai ca đáp ứng ba tiêu chí **ở mức thiết kế
 
 ## 7. R7 – Demo & phân công
 
-### 7.1. Xử lý tình huống phát sinh
+### 7.1. Chuẩn bị xử lý tình huống phát sinh
 
-**Tình huống 1: Sinh viên yêu cầu AI kiểm tra lời giải khi bài tập vẫn đang mở.**
+**Tình huống 1: Sinh viên yêu cầu AI kiểm tra lời giải khi Bài tập 3 vẫn đang mở.**
 
-- **Mức tự chủ:** Suggest.
-- **Cách xử lý:** AI không xác nhận đáp án cuối cùng hoặc cung cấp lời giải hoàn chỉnh. Thay vào đó, AI gợi ý tài liệu, hướng dẫn sinh viên tự kiểm tra từng bước và tự phát hiện lỗi.
-- **Lý do:** Đảm bảo tính trung thực học thuật, không làm bài thay sinh viên.
+- **Mức tự chủ:** Tự làm trong giới hạn; cấm cung cấp hoặc xác nhận đáp án.
+- **Cách xử lý:** AI chỉ cung cấp gợi ý bước đầu theo R3/R4, không kiểm tra chi tiết từng bước, xác nhận đáp số hoặc hoàn thiện lời giải để nộp. Sinh viên có thể xem lại gợi ý ban đầu hoặc tự tiếp tục làm bài.
+- **Lý do:** Đảm bảo tính trung thực học thuật và không vượt quá giới hạn hỗ trợ của `goi_y_bai_tap`.
 
-**Tình huống 2: Hệ thống gửi câu hỏi đến TA bị lỗi, sinh viên yêu cầu AI tự sửa tài liệu.**
+**Tình huống 2: Gửi câu hỏi đến TA thất bại, sinh viên yêu cầu AI tự sửa tài liệu.**
 
-- **Mức tự chủ:** Suggest.
-- **Cách xử lý:** AI không tự ý sửa tài liệu chính thức. Hệ thống thông báo gửi thất bại, cho phép thử lại hoặc đề xuất sinh viên liên hệ trực tiếp với giảng viên/TA. Nội dung sai vẫn được đánh dấu là cần xác minh.
-- **Lý do:** AI không vượt quá quyền hạn, đảm bảo minh bạch và duy trì quyền kiểm soát của con người.
+- **Mức tự chủ:** Cấm tự sửa tài liệu; cần sinh viên xác nhận khi chuyển câu hỏi đến TA.
+- **Cách xử lý:** AI thông báo gửi thất bại, giữ nội dung câu hỏi và cho phép thử lại hoặc liên hệ trực tiếp với giảng viên/TA. Nội dung tại §3.3 của tài liệu buổi 3 vẫn được đánh dấu cần xác minh.
+- **Lý do:** AI không được tự ý thay đổi tài liệu chính thức hoặc thông báo gửi thành công khi công cụ chưa trả kết quả thành công.
 
-### 7.2. Demo và phân công
+### 7.2. Kế hoạch demo và phân công
 
-- Nhóm trình bày hai kịch bản chính trên prototype HTML.
-- Các thành viên trình bày và giải thích phần được phân công theo bảng phân công đầu tài liệu.
-- Khi gặp tình huống phát sinh, nhóm xác định mức tự chủ phù hợp và giải thích dựa trên các nguyên tắc HAX/PAIR.
+- **R1–R3:** Trình bày phạm vi sản phẩm, các rủi ro và phương án xử lý.
+- **R4, R6:** Giải thích mức tự chủ của AI và tiêu chí Pass/Fail.
+- **R5:** Demo hai kịch bản trên `prototype/index.html`, minh họa các nguyên tắc HAX/PAIR.
+- **R7:** Chuẩn bị xử lý tình huống lạ do TA hoặc giảng viên đưa ra, giải thích quyết định dựa trên mức tự chủ đã thiết kế.
