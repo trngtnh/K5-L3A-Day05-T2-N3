@@ -1,5 +1,12 @@
 # Bài nộp LAB5 — Track 2 · Nhóm N3
-[Danh sách thành viên và việc mỗi người làm — copy bảng từ README]
+
+**Lớp:** L3A · **Bàn / zone:** C4 · **Track:** 2
+
+| Họ và Tên | Mã Học Viên | Việc đã làm |
+|---|---|---|
+| Trần Dương Trung Tính | 2A202603488 | Thiết kế mức tự chủ cho 4 tool và phản hồi của AI; phân tích hậu quả khi sai; rà soát 2 ca rủi ro cao và 1 ca thường; xây dựng 3 tiêu chí Pass/Fail, chấm thử trên thiết kế (R4, R6). |
+| Trương Lợi Vĩ | 2A202603441 |  |
+| Nguyễn Nhựt Linh | 2A202603492 |  |
 
 ## 1. Phạm vi và giới hạn sản phẩm (Slice & Scope)
 
