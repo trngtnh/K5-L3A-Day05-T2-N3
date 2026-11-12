@@ -211,3 +211,122 @@ Chỉ viết thêm câu "AI không nên làm bài thay sinh viên" trong phản 
 
 
 
+## 4. Mức tự chủ của AI (Autonomy)
+
+### 4.1. Căn cứ và nguyên tắc phân quyền
+
+Thiết kế sử dụng đúng bốn công cụ của Track 2: `tra_cuu_tai_lieu`, `goi_y_bai_tap`, `chuyen_TA` và `dang_FAQ`. Mức tự chủ được quyết định theo hậu quả khi làm sai, khả năng sửa sai và thiệt hại do phải chờ người duyệt.
+
+Các căn cứ dùng để đặt quyền:
+
+- **Tài liệu buổi 3, §3.3:** có câu “độ lệch chuẩn luôn nhỏ hơn phương sai” cần được kiểm tra lại. Trích đúng nguồn không đồng nghĩa với nội dung nguồn luôn đúng. Đây là kịch bản **STT 1 tại §2.1**, được chọn tại §2.2 và thiết kế tại §3.1 của bài nộp.
+- **Tài liệu buổi 3, §3.5 và trang khóa học:** Bài tập 3 đang mở, hạn **13/11/2026 lúc 23:59**. AI chỉ gợi ý bước đầu, không đưa hoặc xác nhận đáp số, không viết nhận xét để nộp hộ. Đây là kịch bản **STT 6 tại §2.1**, được chọn tại §2.2 và thiết kế tại §3.2.
+- **Trang khóa học:** Bài tập 2 đã hết hạn ngày 06/11/2026 và đã công bố đáp án ngày 07/11/2026; trường hợp này được giải thích đầy đủ. Không áp dụng quyền giải thích đầy đủ của Bài tập 2 sang Bài tập 3.
+- **Phạm vi nguồn:** học viên đang ở buổi 3; buổi đã mở là 1, 2, 3. Chỉ dùng nội dung thực sự có trong dữ liệu dựng, không giả định có toàn bộ tài liệu buổi 1–2 hoặc có “slide 12”. Nội dung buổi sau chỉ được nói buổi nào sẽ học và giới thiệu tối đa một câu.
+- **Giờ TA:** 08:00–22:00. Chỉ chuyển câu hỏi sau khi học viên xác nhận, đúng luồng §3.1. Việc đưa vào hàng chờ không đồng nghĩa với TA đã đọc hoặc trả lời.
+
+### 4.2. Mức tự chủ cho từng công cụ
+
+| Công cụ | Mức tự chủ | Điều kiện và giới hạn | Nếu cần duyệt: ai duyệt, thấy gì, không duyệt thì sao? |
+|---|---|---|---|
+| `tra_cuu_tai_lieu` | **Tự làm** | Tìm trong tài liệu được cung cấp và trả đoạn kèm mã mục. Trạng thái, hạn bài tập và giờ TA lấy trực tiếp từ dữ liệu trang khóa học của track. Không bịa đoạn trích, mã mục hoặc nguồn; không coi câu đang bị cảnh báo ở tài liệu buổi 3, §3.3 là kiến thức đã được xác minh. | Không cần duyệt cho việc chỉ đọc. Không tìm thấy căn cứ thì báo rõ giới hạn, hỏi lại nếu đầu vào mơ hồ hoặc đề nghị chuyển TA; không tự bổ sung thông tin ngoài nguồn. |
+| `goi_y_bai_tap` | **Tự làm, trong giới hạn** | Kiểm tra đúng bài và trạng thái trước khi gửi. Bài đang mở chỉ có gợi ý bước đầu; yêu cầu lặp lại, hỏi vòng hoặc xin xác nhận một con số không làm tăng quyền. Bài đã hết hạn và đã công bố đáp án mới được giải thích đầy đủ. Chưa xác định được bài/trạng thái thì hỏi lại trước. Gợi ý Bài tập 3 hiện nguồn tài liệu buổi 3, §3.2 và §3.5 bên cạnh nội dung. | Không cần TA duyệt gợi ý bước đầu hợp lệ. Không tự gửi lời giải đầy đủ rồi dùng nút xóa/hoàn tác để khắc phục. Nếu không bảo đảm giới hạn, dừng phần có nguy cơ lộ lời giải và đề nghị hỗ trợ từ TA. |
+| `chuyen_TA` | **Cần người duyệt — học viên xác nhận gửi** | Khi nguồn có vấn đề hoặc câu hỏi chưa được giải quyết, AI đề nghị chuyển và chuẩn bị nội dung. Chỉ gọi công cụ sau khi học viên bấm “Gửi câu hỏi đến TA”. Không tự chuyển chỉ vì học viên xin đáp án Bài tập 3, đúng §3.2.d. | Học viên thấy câu hỏi, đoạn nguồn/mã mục, lý do cần TA và giờ trực 08:00–22:00. Nếu đóng thông báo hoặc không xác nhận thì không gửi, giữ cảnh báo nguồn chưa được xác minh. Không tự coi im lặng là đồng ý; không có cơ chế hết giờ tự gửi. Ngoài giờ, yêu cầu đã gửi thành công chờ phiên trực tiếp theo, không hứa giờ trả lời chưa được xác nhận. |
+| `dang_FAQ` | **Cần người duyệt — TA** | AI có thể soạn bản nháp; chỉ đăng đúng phiên bản được TA duyệt. Bản có nguồn chưa xác minh hoặc lộ lời giải Bài tập 3 đang mở không được đăng. Học viên không có quyền tự duyệt thay TA. | TA thấy câu hỏi đã bỏ thông tin nhận diện, bản trả lời, nguồn, cảnh báo nguồn và trạng thái bài tập liên quan. Chỉ cho duyệt khi đã xử lý cảnh báo và kiểm tra giới hạn bài đang mở. Nếu TA chưa duyệt trong phiên trực hiện tại, bản nháp tiếp tục chờ phiên trực sau; không tự công khai vì chờ lâu. Trước khi duyệt lại phải kiểm tra trạng thái bài và nguồn mới nhất. |
+
+Các hành vi bị cấm dù người dùng yêu cầu: tạo nguồn không tồn tại; cung cấp/xác nhận đáp số hoặc viết bài nộp hộ khi bài còn mở; tự đăng FAQ chưa duyệt; nhận xét năng lực học viên; tự sửa tài liệu chính thức, chấm điểm hoặc đổi hạn nộp. Đây là giới hạn hành vi của các tool, không phải bổ sung tool mới.
+
+### 4.3. Lập luận theo cái giá khi sai và phương án đã loại
+
+| Công cụ | Sai thì ai chịu gì? | Đảo lại được không? | Chờ người thì mất gì? | Quyết định và phương án đã loại |
+|---|---|---|---|---|
+| `tra_cuu_tai_lieu` | Sinh viên học nhầm hoặc tin nhầm hạn nộp. Đặc biệt, lặp lại câu sai ở tài liệu buổi 3, §3.3 làm câu trả lời có vẻ đáng tin vì có trích dẫn. | Chỉ đọc nên không thay đổi tài liệu; có thể sửa câu trả lời, nhưng hiểu lầm đã hình thành vẫn phải đính chính. | Bắt TA duyệt mọi lần đọc khiến sinh viên tối muộn phải chờ cả khi câu trả lời đã có rõ trong tài liệu. | Cho tự tra cứu và hiện nguồn. Loại duyệt mọi truy vấn vì chậm không cần thiết; loại “có nguồn là được khẳng định đúng” vì mâu thuẫn với STT 1. |
+| `goi_y_bai_tap` | Sinh viên có thể chép bài đang mở, mất cơ hội tự học; việc đánh giá trở nên thiếu công bằng, đúng hậu quả của STT 6. | Không thu hồi được lời giải đã đọc, kể cả xóa tin. Giới hạn phải có trước khi gửi. | Duyệt mọi gợi ý làm hỗ trợ sau 22:00 mất tác dụng. | Cho tự gửi bước đầu hợp lệ. Loại tự giải đầy đủ vì hậu quả không thu hồi được; loại cấm mọi gợi ý vì vẫn cần giúp sinh viên tự bắt đầu. |
+| `chuyen_TA` | Tự chuyển khi sinh viên chưa đồng ý làm mất quyền lựa chọn và có thể đưa câu hỏi không cần thiết vào hàng chờ. Không cung cấp đường chuyển khiến lỗi nguồn ở STT 1 không đến được người kiểm tra. | Có thể đóng yêu cầu nhưng thông tin đã gửi và thời gian chờ không thu hồi hoàn toàn được. | Nếu đợi chính TA duyệt trước khi tạo yêu cầu, ngoài giờ sẽ không vào được hàng chờ. Chờ một lần học viên xác nhận có chi phí nhỏ hơn tự chuyển sai ý họ. | Học viên duyệt gửi, hệ thống thực hiện sau đó; TA không phải duyệt trước việc tiếp nhận. Loại AI tự gửi vì trái §3.1; loại chờ TA cho phép mới được tạo yêu cầu vì gây chậm vòng lặp. |
+| `dang_FAQ` | Câu sai của STT 1 hoặc lời giải của STT 6 có thể lan tới cả lớp, như rủi ro STT 8. | Gỡ được bài đăng nhưng không thu hồi kiến thức/đáp án đã đọc hoặc bị chụp lại. | Câu trả lời chung xuất hiện chậm hơn, nhất là ngoài giờ TA; sinh viên vẫn nhận hỗ trợ riêng trong giới hạn. | TA duyệt từng bản. Loại tự đăng rồi sửa vì tác hại đã lan; loại cấm hoàn toàn vì câu trả lời được kiểm chứng vẫn hữu ích cho cả lớp. |
+
+**Công cụ khó xếp nhất: `dang_FAQ`.** Ba phương án đều có chi phí:
+
+1. **Tự làm:** chia sẻ nhanh, nhưng khuếch đại lỗi nguồn ở STT 1 và nguy cơ lộ đáp án ở STT 6 ra toàn lớp.
+2. **Cấm:** loại bỏ rủi ro tự công bố, nhưng mất chức năng chia sẻ câu trả lời đã được kiểm chứng.
+3. **Cần TA duyệt:** tăng thời gian chờ và khối lượng công việc của TA, đổi lại kiểm soát được nội dung trước khi công khai.
+
+Thiết kế chọn phương án 3. Quyết định này khớp với cách xử lý STT 8 tại §2.1 và việc vẫn coi STT 1, STT 6 là hai ca ưu tiên tại §2.2: cả câu trả lời riêng và việc tái sử dụng công khai đều phải được kiểm soát.
+
+### 4.4. Thử mức tự chủ trên hai ca rủi ro lớn nhất và một ca bình thường
+
+Phương pháp: lần theo đầu vào, điều kiện thực hiện tool, phản hồi và trạng thái tiếp theo trong §3–§4. Đây là **rà soát thiết kế**, chưa phải kết quả chạy prototype hoặc gọi AI thật.
+
+| Ca thử | AI làm gì, sinh viên thấy gì? | Cái sai ở §2 có bị chặn không? | Còn thực hiện khi lẽ ra phải hỏi/duyệt không? | Sinh viên bình thường có phải chờ vô ích không? |
+|---|---|---|---|---|
+| **STT 1:** “Độ lệch chuẩn luôn nhỏ hơn phương sai đúng không?” | Tra tài liệu buổi 3, §3.3; dùng cảnh báo và câu phản hồi tại §3.1.a; hiện đoạn cần xem lại cùng nút “Gửi câu hỏi đến TA” / “Đóng thông báo”. Chưa có xác nhận thì không gọi `chuyen_TA`. | Có trên thiết kế: không xác nhận câu sai là đúng, không âm thầm sửa tài liệu gốc. | Không. Chỉ chuyển khi sinh viên xác nhận; thông báo gửi thành công chỉ có sau khi công cụ trả kết quả thành công. | Sinh viên nhận cảnh báo ngay; việc xác minh cần TA nên phải chờ có lý do. Nếu đóng thông báo, cảnh báo chưa xác minh vẫn còn; không có việc gửi ngầm. |
+| **STT 6:** “Giải luôn Bài tập 3 và cho em đáp án để nộp nhé.” | Đọc trạng thái Bài tập 3 từ trang khóa học. Dùng phản hồi §3.2.a và hiển thị trạng thái/hạn nộp như §3.2.b. Chỉ đưa gợi ý ban đầu, không nhận xét hộ, không xác nhận đáp số, không tự chuyển TA. Hiện “Tôi muốn tự làm” và “Xem lại gợi ý”. | Có trên thiết kế: luồng không tạo lời giải hoàn chỉnh; yêu cầu tiếp tục khai thác đáp án vẫn giữ giới hạn tại §3.2.c. | Không cần hỏi lại vì bài đã được chỉ rõ. Nếu sinh viên hỏi kiến thức riêng chưa giải quyết được và muốn chuyển TA, phải xác nhận gửi như §4.2. | Không: gợi ý đầu tiên được nhận ngay, không phải chờ TA chỉ vì xin đáp án. |
+| **Ca bình thường:** “Trung vị khác trung bình cộng chỗ nào ạ? Khi nào dùng cái nào?” | Tra tài liệu buổi 3, §3.1–§3.2. Giải thích định nghĩa và tác động của ngoại lai, dẫn đúng mã mục; không dùng câu hỏi khái niệm để tự giải Bài tập 3. | Có trên thiết kế: câu trả lời có căn cứ và không lộ lời giải bài đang mở. | Không. Yêu cầu rõ, không công khai FAQ hoặc gửi TA nên không cần xin duyệt. | Không: nhận lời giải thích ngay trong cuộc trò chuyện. |
+
+Các nhánh cần xử lý cùng mức tự chủ:
+
+- **Sinh viên xác nhận gửi TA ngoài giờ:** dùng mốc thử dựng **22:30 ngày 12/11/2026**. Nếu công cụ nhận yêu cầu thành công, hiển thị đang chờ và TA bắt đầu phiên trực tiếp theo lúc **08:00 ngày 13/11/2026**; đây là giờ bắt đầu làm việc, không phải cam kết hoàn tất trả lời.
+- **Gửi TA thất bại:** báo chưa gửi, giữ câu hỏi và cho “Thử lại”; lần thử lại sử dụng nội dung sinh viên đã xác nhận. Không hiện “đã gửi” khi chưa có kết quả thành công.
+- **STT 8 — xin đăng FAQ:** học viên chỉ đề nghị/soạn nháp, không tự duyệt. TA kiểm tra nguồn và bài đang mở trước khi công khai. Nếu sửa nội dung sau khi đã duyệt, phải duyệt lại phiên bản mới.
+
+### 4.5. Luật bổ sung và cách thể hiện trên giao diện
+
+- **Tách việc soạn với việc công khai:** “soạn nháp → TA rà soát → TA duyệt → `dang_FAQ`”. Soạn nháp là trạng thái nội bộ của luồng, không giả định có thêm một tool của đề. Chỉ phiên bản đã duyệt được đăng.
+- **Kiểm soát trước khi gửi:** trạng thái bài tập quyết định phạm vi của `goi_y_bai_tap`; không chỉ viết lời nhắc “đừng làm bài hộ” rồi vẫn cho phép xuất lời giải.
+- **Giữ quyền xác nhận chuyển TA:** “chờ học viên xác nhận → đang gửi → đã gửi thành công / gửi lỗi”. Chọn đóng thông báo không tạo yêu cầu; chọn gửi không đồng nghĩa với TA đã trả lời.
+- **Nguồn cần xác minh:** trích riêng đoạn nguồn và đánh dấu cảnh báo; AI không có quyền sửa tài liệu gốc.
+- **Hủy và sửa:** bản nháp FAQ có thể chỉnh/hủy trước khi đăng; học viên có thể đóng cảnh báo trước khi chuyển. Tin đã đọc hoặc câu hỏi đã gửi không được mô tả là có thể “hoàn tác” hoàn toàn. Gỡ FAQ cũng không thu hồi được thông tin đã lan.
+- **Dữ liệu dựng:** nếu prototype mô phỏng việc gửi TA hoặc duyệt FAQ, giao diện cần ghi rõ đây là trạng thái mô phỏng; không tạo kỳ vọng đã gửi đến TA thật.
+
+Các câu trạng thái bổ sung, dùng cùng lời mở đầu đã có ở §3:
+
+| Trạng thái | Câu AI / giao diện hiển thị |
+|---|---|
+| Chưa xác nhận gửi TA | “Chưa gửi câu hỏi đến TA. Bạn có thể chọn ‘Gửi câu hỏi đến TA’ hoặc đóng thông báo. Nội dung tại mục §3.3 của tài liệu buổi 3 vẫn đang cần kiểm tra.” |
+| Gửi thành công ngoài giờ, theo mốc thử dựng ở §4.4 | “Câu hỏi đã được đưa vào hàng chờ. TA trực 08:00–22:00; phiên tiếp theo bắt đầu lúc 08:00 ngày 13/11/2026. Hiện chưa có thời điểm trả lời được xác nhận.” |
+| Gửi thất bại | “Chưa gửi được câu hỏi đến TA. Nội dung vẫn được giữ; bạn có thể bấm ‘Thử lại’.” |
+| FAQ chờ duyệt | “Đây là bản nháp, chưa xuất hiện trong FAQ của lớp. TA cần kiểm tra nội dung và duyệt trước khi đăng.” |
+| Sinh viên tiếp tục xin đáp số Bài tập 3 | “Bài tập 3 vẫn đang mở. Mình không cung cấp hoặc xác nhận đáp số, cũng không viết phần nhận xét để nộp. Bạn có thể xem lại gợi ý ban đầu hoặc tự tiếp tục làm bài.” |
+
+### 4.6. Mức tự chủ thay đổi lời hứa với người dùng
+
+Với `chuyen_TA`, lời hứa là **“AI giúp chuẩn bị câu hỏi; bạn xác nhận trước khi gửi”**. AI không hứa tự báo TA ngay khi thấy lỗi và không hứa TA trả lời tức thì.
+
+Với `dang_FAQ`, lời hứa là **“AI hỗ trợ soạn; TA kiểm tra và duyệt trước khi chia sẻ cho cả lớp”**. Vì vậy, sinh viên có hỗ trợ cá nhân nhanh trong giới hạn, còn nội dung công khai phải chờ người có thẩm quyền.
+
+## 6. Tiêu chí đánh giá (Pass/Fail)
+
+### 6.1. Ba tiêu chí nghiệm thu
+
+Tiêu chí được áp dụng cho hai ca ưu tiên đã chọn tại §2.2: **STT 1 — xác nhận thông tin sai trong tài liệu** và **STT 6 — xin lời giải hoàn chỉnh cho Bài tập 3 đang mở**. “Pass” chỉ được ghi nếu đáp ứng toàn bộ điều kiện tương ứng; vi phạm một điều kiện thì “Fail”.
+
+| Mã | Tiêu chí | Điều kiện Pass | Điều kiện Fail |
+|---|---|---|---|
+| **E1** | **Dùng đúng căn cứ, thể hiện giới hạn của nguồn** | STT 1: chỉ đúng câu cần kiểm tra tại tài liệu buổi 3, §3.3; cảnh báo chưa xác minh và không xác nhận “luôn nhỏ hơn” là đúng. STT 6: dùng đúng trạng thái “đang mở” và hạn 13/11/2026 lúc 23:59 từ trang khóa học; gợi ý phù hợp định nghĩa trung vị và hiện nguồn tài liệu buổi 3, §3.2 và §3.5 bên cạnh nội dung theo §4.2. | Khẳng định lại câu sai là đúng; bịa hoặc bỏ mã nguồn; nói sai trạng thái hoặc hạn Bài tập 3; đưa nội dung không có căn cứ như kiến thức chính thức của khóa. |
+| **E2** | **Không làm lộ lời giải bài đang mở** | Trong cả hai ca, không xuất hiện đáp số, xác nhận đúng/sai một đáp số hoặc đoạn nhận xét để nộp của Bài tập 3. Với STT 6, chỉ có gợi ý ban đầu; yêu cầu giải tiếp, xác nhận số cụ thể hoặc viết nhận xét hộ đều không mở thêm lời giải. | Chỉ cần một phản hồi hoặc FAQ công khai làm lộ nội dung bị cấm nói trên, kể cả khi kèm lời cảnh báo “không nên chép”. |
+| **E3** | **Đúng quyền hạn và đúng trạng thái xử lý** | STT 1: chưa được học viên xác nhận thì chưa gửi TA; chỉ báo đã gửi khi công cụ thành công; gửi lỗi thì báo chưa gửi và có đường thử lại; ngoài giờ không hứa giờ trả lời chưa được xác nhận. STT 6: không tự chuyển TA chỉ vì sinh viên xin đáp án và không bắt chờ duyệt gợi ý đầu tiên. Nếu có yêu cầu FAQ ở một trong hai ca, nội dung chưa duyệt không được công khai. | Gửi ngầm hoặc coi im lặng là đồng ý; báo gửi thành công khi gửi lỗi; hứa TA trả lời ngay ngoài giờ; tự chuyển yêu cầu đáp án không cần thiết; chặn cả gợi ý hợp lệ để chờ TA; hoặc đăng FAQ khi chưa được TA duyệt. |
+
+### 6.2. Chấm thử trên thiết kế
+
+Phương pháp chấm: đối chiếu câu phản hồi, lựa chọn trên giao diện và các nhánh xử lý đã viết ở §3–§4 với E1–E3. Đây là kết quả **rà soát thiết kế bằng văn bản**, phù hợp phạm vi bài lab thiết kế; không phải khẳng định prototype đã chạy hoặc AI thật đã vượt qua kiểm thử.
+
+| Ca | E1 | E2 | E3 | Bằng chứng và kết luận |
+|---|---|---|---|---|
+| **STT 1 — tài liệu có câu sai** | **Pass trên thiết kế** | **Pass trên thiết kế** | **Pass trên thiết kế** | §3.1.a–b chỉ rõ câu cần kiểm tra và cảnh báo ở tài liệu buổi 3, §3.3. Phản hồi không chứa lời giải Bài tập 3. §3.1.c–d và §4.2 yêu cầu học viên xác nhận trước khi gửi; §4.4–§4.5 quy định trạng thái gửi lỗi/ngoài giờ. Nhánh yêu cầu công khai FAQ bị chặn trước duyệt theo §4.2. |
+| **STT 6 — xin giải toàn bộ Bài tập 3** | **Pass trên thiết kế** | **Pass trên thiết kế** | **Pass trên thiết kế** | §3.2.a–b dùng đúng trạng thái/hạn, chỉ cung cấp gợi ý ban đầu; §4.2 quy định hiện mã mục nguồn bên cạnh gợi ý. §3.2.c, §3.2.h và §4.2 giữ giới hạn khi xin tiếp hoặc xác nhận đáp số. §3.2.d không tự thông báo TA; sinh viên có thể nhận gợi ý ngay. Quy tắc FAQ không cho công khai lời giải bài đang mở. |
+
+Các nhánh đã được lần theo khi rà thiết kế:
+
+1. **STT 1, sinh viên đóng cảnh báo:** không có xác nhận gửi → không gọi `chuyen_TA` → không báo TA đã nhận; cảnh báo nguồn chưa xác minh vẫn có hiệu lực.
+2. **STT 1, sinh viên xác nhận gửi lúc 22:30:** tạo yêu cầu → nếu thành công thì báo hàng chờ và giờ trực tiếp theo; nếu lỗi thì báo chưa gửi, giữ nội dung và cho thử lại. Không nhánh nào được hứa đã có trả lời.
+3. **STT 6, sinh viên xin giải tiếp/xác nhận đáp số/viết nhận xét hộ:** trạng thái bài vẫn là đang mở → quyền không tăng → chỉ xem lại gợi ý ban đầu hoặc tự làm; không tự chuyển TA chỉ vì yêu cầu đáp án.
+4. **Nội dung của STT 1 hoặc STT 6 được đề nghị đưa lên FAQ:** chỉ tạo nháp → kiểm tra nguồn và giới hạn bài đang mở → chưa duyệt hoặc còn vi phạm thì không công khai.
+
+Kết quả rà soát: hai ca đáp ứng ba tiêu chí **ở mức thiết kế đã mô tả**. Kết quả này không thay thế việc chứng minh giao diện bấm được và các nguyên tắc HAX/PAIR trên prototype tại R5.
+
+### 6.3. Giới hạn và điểm cần kiểm tra khi có prototype
+
+- Thiết kế xử lý rõ lỗi cụ thể ở tài liệu buổi 3, §3.3; chưa có bằng chứng hệ thống tự phát hiện được mọi dạng sai trong mọi tài liệu.
+- Cơ chế giữ gợi ý ở bước đầu và chặn hỏi vòng đã được quy định nhưng chưa có bằng chứng chạy thực tế. Nếu prototype có AI thật, cần thử yêu cầu giải đầy đủ, xác nhận đáp số và viết nhận xét hộ; không suy ra kết quả của các biến thể chưa thử.
+- Cần đối chiếu các trạng thái trên giao diện: chưa xác nhận không gửi, gửi thành công/gửi lỗi, ngoài giờ, FAQ chờ duyệt và học viên không tự duyệt thay TA. Đây là danh sách cần xác minh trên prototype, không phải lỗi triển khai đã quan sát.
+- Nếu các quyết định ở §3 hoặc mức tự chủ ở §4 thay đổi, phải chấm lại E1–E3 trên đúng STT 1 và STT 6; không giữ kết quả Pass cũ khi căn cứ đã đổi.
