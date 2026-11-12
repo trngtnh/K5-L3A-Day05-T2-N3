@@ -301,6 +301,61 @@ Với `chuyen_TA`, lời hứa là **“AI giúp chuẩn bị câu hỏi; bạn 
 
 Với `dang_FAQ`, lời hứa là **“AI hỗ trợ soạn; TA kiểm tra và duyệt trước khi chia sẻ cho cả lớp”**. Vì vậy, sinh viên có hỗ trợ cá nhân nhanh trong giới hạn, còn nội dung công khai phải chờ người có thẩm quyền.
 
+## 5. Prototype
+
+### 5.1. Công cụ và phạm vi
+
+- **Tên prototype:** StudyGuard – AI Teaching Assistant.
+- **File:** `prototype/index.html`.
+- **Công nghệ:** HTML, CSS, JavaScript.
+- **Phạm vi:** Hai màn hình tương tác mô phỏng hai kịch bản rủi ro cao nhất tại §2.2.
+- **Dữ liệu:** Sử dụng dữ liệu giả từ Track 2; các thao tác tra cứu, gửi TA và đăng FAQ đều được mô phỏng trong trình duyệt.
+- **AI thật:** Không sử dụng API hoặc lời gọi AI thật; không có backend.
+
+Prototype tập trung thể hiện cách hệ thống xử lý khi nguồn tài liệu có sai sót và khi sinh viên yêu cầu đáp án của bài tập đang mở.
+
+### 5.2. Giao diện và nguyên tắc thiết kế
+
+**Ảnh 1 – Màn hình cảnh báo thông tin sai trong tài liệu**
+
+![Ảnh 1 – Cảnh báo thông tin sai trong tài liệu](prototype/StudyGuard_Anh1_Nguon_sai.png)
+
+| Vị trí | Thành phần giao diện | Nguyên tắc | Mức tự chủ |
+|---|---|---|---|
+| ① | Cảnh báo nguồn chưa xác minh | HAX G2 | AI tự phát hiện và cảnh báo theo dữ liệu mô phỏng |
+| ② | Trích dẫn §3.3 và đánh dấu câu sai | HAX G11 | Tự tra cứu tài liệu |
+| ③ | Nút gửi câu hỏi đến TA và hộp xác nhận | PAIR – Graceful Failure | Cần sinh viên xác nhận |
+
+Khi sinh viên xác nhận, hệ thống mô phỏng việc chuyển câu hỏi đến TA và hiển thị trạng thái thành công hoặc thất bại. Nếu gửi thất bại, người dùng có thể thử lại.
+
+**Ảnh 2 – Màn hình giới hạn hỗ trợ Bài tập 3**
+
+![Ảnh 2 – Giới hạn hỗ trợ Bài tập 3](prototype/StudyGuard_Anh2_Bai_tap_dang_mo.png)
+
+| Vị trí | Thành phần giao diện | Nguyên tắc | Mức tự chủ |
+|---|---|---|---|
+| ① | Trạng thái bài đang mở và hạn nộp | PAIR – Trust | Tự đọc trạng thái bài tập |
+| ② | Cảnh báo giới hạn và gợi ý bước đầu | HAX G10 | Tự gợi ý trong giới hạn; cấm tiết lộ đáp án |
+| ③ | Nút "Tôi muốn tự làm" | HAX G8 | Sinh viên chủ động quyết định |
+
+Hệ thống không cung cấp lời giải hoàn chỉnh, kể cả khi sinh viên tiếp tục yêu cầu. Chức năng FAQ chỉ cho phép tạo bản nháp; nội dung phải được TA phê duyệt trước khi công khai.
+
+### 5.3. Quyết định thiết kế
+
+**Hiển thị độ chắc chắn và bằng chứng:**
+
+Nhóm lựa chọn hiển thị trạng thái "Chưa xác minh" cùng trích dẫn chính xác nguồn tài liệu, thay vì sử dụng phần trăm độ tin cậy không có căn cứ. Cách này giúp sinh viên nhận biết giới hạn của AI và kiểm tra thông tin.
+
+**Kiểm soát mức tự chủ:**
+
+Nhóm sử dụng cảnh báo, nút xác nhận và trạng thái xử lý để phân biệt hành động AI được tự làm, cần phê duyệt hoặc bị cấm.
+
+Nhóm không chọn phương án để AI tự thực hiện rồi cho phép hoàn tác, vì thông tin sai hoặc đáp án đã tiết lộ không thể thu hồi hoàn toàn.
+
+**Xử lý tình huống chưa chuẩn bị:**
+
+Prototype sử dụng quy tắc phân nhánh để nhận diện yêu cầu. Khi thiếu căn cứ hoặc vượt phạm vi, hệ thống hỏi làm rõ hoặc đưa ra phản hồi an toàn, không tự tạo thông tin.
+
 ## 6. Tiêu chí đánh giá (Pass/Fail)
 
 ### 6.1. Ba tiêu chí nghiệm thu
