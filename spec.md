@@ -6,7 +6,7 @@
 |---|---|---|
 | Trần Dương Trung Tính | 2A202603488 | Thiết kế mức tự chủ cho 4 tool và phản hồi của AI; phân tích hậu quả khi sai; rà soát 2 ca rủi ro cao và 1 ca thường; xây dựng 3 tiêu chí Pass/Fail, chấm thử trên thiết kế (R4, R6). |
 | Trương Lợi Vĩ | 2A202603441 | Xây dựng §1 – Phạm vi sản phẩm và giới hạn chức năng; phân tích, phân loại 10 tình huống rủi ro trong §2; thiết kế phương án xử lý UX cho 2 tình huống rủi ro cao trong §3, bao gồm phát hiện thông tin sai trong tài liệu và bảo vệ bài tập đang mở; vận dụng HAX và PAIR để giải thích các quyết định thiết kế (R1, R2, R3). |
-| Nguyễn Nhựt Linh | 2A202603492 |  |
+| Nguyễn Nhựt Linh | 2A202603492 | Xây dựng prototype; thiết kế giao diện và tương tác cho 2 kịch bản rủi ro cao; mô phỏng các mức tự chủ của AI và thể hiện nguyên tắc HAX/PAIR (R5).|
 
 ## 1. Phạm vi và giới hạn sản phẩm (Slice & Scope)
 
